@@ -19,7 +19,8 @@ const StockBox = ({ stock, stockNum }) => {
         <Card.Text
           as='p'
           style={{ color: "blue" }}
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation()
             alert(`UID: ${stock.uid}`)
           }}
         >

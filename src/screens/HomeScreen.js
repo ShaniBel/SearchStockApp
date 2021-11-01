@@ -15,6 +15,7 @@ const HomeScreen = ({ history }) => {
       )
       .then((response) => {
         let sortedData = response.data
+        sortedData = sortedData.filter((item) => item.category === "ticker")
         sortedData.sort((a, b) => {
           let fa = a.value.toLowerCase(),
             fb = b.value.toLowerCase()
@@ -52,16 +53,20 @@ const HomeScreen = ({ history }) => {
               placeholder='Search Stocks...'
               className='mr-sm-2'
             ></Form.Control>
-            <Button type='submit' variant='outline-success' className='p-2'>
-              Search
-            </Button>
           </Form>
 
           <Container>
             <Row>
               {data.length !== 0 &&
                 data.map((stock, i) => (
-                  <Col key={i} sm={12} md={6} lg={4} xl={4} className='my-2'>
+                  <Col
+                    key={stock.uid}
+                    sm={12}
+                    md={6}
+                    lg={4}
+                    xl={4}
+                    className='my-2'
+                  >
                     <StockBox stock={stock} stockNum={i} />
                   </Col>
                 ))}
