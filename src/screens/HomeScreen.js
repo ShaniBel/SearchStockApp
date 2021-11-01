@@ -1,6 +1,6 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-import { Container, Form, Button, Row, Col } from "react-bootstrap"
+import { Container, Form, Row, Col } from "react-bootstrap"
 import StockBox from "../components/StockBox"
 
 const HomeScreen = ({ history }) => {
